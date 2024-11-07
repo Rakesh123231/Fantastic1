@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: FANTASTIC1-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/CitizenDB
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
