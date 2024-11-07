@@ -7,7 +7,7 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8081
