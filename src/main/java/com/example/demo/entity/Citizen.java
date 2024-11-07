@@ -22,6 +22,13 @@ public class Citizen {
 		this.name = name;
 		this.vaccinationCenterId = vaccinationCenterId;
 	}
+	
+	
+	public Citizen() {
+		super();
+	}
+
+
 	public int getId() {
 		return id;
 	}
