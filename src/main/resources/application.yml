@@ -9,5 +9,14 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 server:
-  port: 8081
+  port: 9019   
+
+
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379

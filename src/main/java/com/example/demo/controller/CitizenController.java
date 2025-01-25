@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.context.WebServerApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +22,14 @@ import com.example.demo.entity.Citizen;
 import com.example.demo.services.CitizenService;
 
 @RestController
-@RequestMapping("fantastic/fa")
+@RequestMapping("fantastic/fox")
 public class CitizenController {
 
 	@Autowired
 	CitizenService csService;
+	
+	 @Autowired
+	    private WebServerApplicationContext webServerApplicationContext;
 
 	@PostMapping("/add")
 	public ResponseEntity<Citizen> addCitizen(@RequestBody Citizen cs) {
@@ -58,5 +63,13 @@ public class CitizenController {
 		Optional<Citizen> cz = csService.findByCitizenId(id);
 		csService.deleteCitizen(cz.get());
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/ports")
+	public String getPortDetails () {
+		
+		int port = webServerApplicationContext.getWebServer().getPort();
+		
+		return "Running at port " + port;
 	}
 }
